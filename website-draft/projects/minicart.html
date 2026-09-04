@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mini Cart — Project</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    main.container { padding-left: 1rem !important; padding-right: 1rem !important; }
+    .project-page { padding-left: 0 !important; padding-right: 0 !important; }
+    .project-page > h2 { margin-bottom: 4rem; }
+    .project-page > .project-rotator { position: relative; width: 100%; margin-bottom: 3rem; }
+    .project-page > .project-rotator img { width: 90%; height: auto; display: block; margin: 0 auto; }
+    .project-section { margin-bottom: 3rem; }
+    .project-section h3 { margin-bottom: 1.5rem; }
+    .project-section p { margin-bottom: 1.5rem; }
+    .project-section img { opacity: 1 !important; display: block !important; animation: none !important; transform: none !important; }
+    .project-section img.active { opacity: 1 !important; }
+    .project-section img:not(.active) { opacity: 1 !important; }
+    .rotator-dots { display: none !important; }
+    .project-section div[style*="flex-direction: column"] img { animation: none !important; }
+    .project-section div[style*="flex-direction: column"] img:nth-child(n) { opacity: 1 !important; }
+    .project-section div[style*="flex-direction: column"] { animation: none !important; }
+    main img { opacity: 1 !important; display: block !important; animation: none !important; transform: none !important; }
+    main img.active { opacity: 1 !important; }
+    main img:not(.active) { opacity: 1 !important; }
+    div[style*="flex-direction: column"] img { opacity: 1 !important; animation: none !important; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container project-page">
+    <h2>Mini Cart — Lenovo.com Checkout Experience</h2>
+
+    <div class="project-main">
+        <section class="project-section">
+          <h3>mini cart UI &amp; interactions</h3>
+          <!-- Static hero images -->
+          <div style="display: flex !important; flex-direction: column !important; gap: 2rem; margin: 2rem 0;">
+            <img src="../assets/minicart/mc1.png" alt="Mini Cart screenshot 1" style="width: 100%; height: auto; border-radius: 8px;" />
+            <img src="../assets/minicart/mc2.png" alt="Mini Cart screenshot 2" style="width: 100%; height: auto; border-radius: 8px;" />
+            <img src="../assets/minicart/mc3.png" alt="Mini Cart screenshot 3" style="width: 100%; height: auto; border-radius: 8px;" />
+          </div>
+        </section>
+        <section class="project-section">
+          <h3>Context &amp; Problem</h3>
+          <p>Customers had to leave their current page and go to a full cart page just to check contents, adjust quantities, or see pricing. The site needed a persistent mini cart accessible from anywhere.</p>
+        </section>
+
+        <section class="project-section">
+          <h3>Role &amp; Scope</h3>
+          <p>Senior Product Owner for Mini Cart, covering desktop, tablet, and mobile.</p>
+        </section>
+
+        <section class="project-section">
+          <h3>Requirements Ownership</h3>
+          <p>I own the epic, covering edge cases like paginated carts, unpurchaseable products, bundles/add-ons, and configure-to-order items. I also drove gaps to closure — flagging missing analytics tagging documentation and pushing until the team delivered a written spec.</p>
+        </section>
+
+        <section class="project-section">
+          <h3>Strategy &amp; Prioritization</h3>
+          <p>The cart needed to behave differently by context — suppressed on checkout pages, configurable per country, and adaptive across breakpoints. I balanced this against a reusable interaction model (stepper for quantity, trash icon at zero) so most states shared one consistent pattern rather than custom designs.</p>
+        </section>
+
+        <section class="project-section">
+          <h3>Execution</h3>
+          <p>Specified real-time cart updates without page reload, an animated removal sequence, and Saved-for-Later handling for unpurchaseable products. Partnered with the analytics team to define tracking for every interaction — open/close, quantity changes, navigation, errors — so the business could measure component-level usage.</p>
+
+          <!-- Execution images -->
+          <div style="display: flex; flex-direction: column; gap: 2rem; margin: 2rem 0;">
+            <img src="../assets/minicart/roadmap.png" alt="Project roadmap" style="width: 100%; height: auto; border-radius: 8px;" />
+            <img src="../assets/minicart/userstory.png" alt="User story" style="width: 100%; height: auto; border-radius: 8px;" />
+          </div>
+          <p class="discovery-caption">Execution Planning</p>
+        </section>
+
+        <section class="project-section">
+          <h3>Outcomes</h3>
+          <p>Shipped to production across desktop, tablet, and mobile with full analytics instrumentation in place to measure post-launch performance:</p>
+          <ul>
+            <li>Persistent mini cart accessible from any page on Lenovo.com</li>
+            <li>Real-time cart updates without page reload</li>
+            <li>Full WCAG 2.1 AA accessibility compliance</li>
+            <li>Context-aware display (suppressed on checkout, configurable per country)</li>
+            <li>Comprehensive analytics tracking for all interactions</li>
+            <li>Responsive design across desktop, tablet, and mobile</li>
+            <li>Handling of edge cases: paginated carts, bundles, configure-to-order items</li>
+          </ul>
+        </section>
+      </div>
+  </main>
+  <script src="../script.js?v=10"></script>
+</body>
+</html>

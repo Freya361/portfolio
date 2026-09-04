@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>B2C BestBuy — Project</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    main.container { padding-left: 1rem !important; padding-right: 1rem !important; }
+    .project-page { padding-left: 0 !important; padding-right: 0 !important; }
+    .project-page > h2 { margin-bottom: 4rem; }
+    .project-page > .project-rotator { position: relative; width: 100%; margin-bottom: 3rem; }
+    .project-page > .project-rotator img { width: 90%; height: auto; display: block; margin: 0 auto; }
+    .project-section { margin-bottom: 3rem; }
+    .project-section h3 { margin-bottom: 1.5rem; }
+    .project-section p { margin-bottom: 1.5rem; }
+    .project-section img { opacity: 1 !important; display: block !important; animation: none !important; transform: none !important; }
+    .project-section img.active { opacity: 1 !important; }
+    .project-section img:not(.active) { opacity: 1 !important; }
+    .rotator-dots { display: none !important; }
+    .project-section div[style*="flex-direction: column"] img { animation: none !important; }
+    .project-section div[style*="flex-direction: column"] img:nth-child(n) { opacity: 1 !important; }
+    .project-section div[style*="flex-direction: column"] { animation: none !important; }
+    main img { opacity: 1 !important; display: block !important; animation: none !important; transform: none !important; }
+    main img.active { opacity: 1 !important; }
+    main img:not(.active) { opacity: 1 !important; }
+    div[style*="flex-direction: column"] img { opacity: 1 !important; animation: none !important; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container project-page">
+    <h2>B2C BestBuy Instore Pickup Integration</h2>
+
+    <div class="project-main">
+        <section class="project-section">
+          <h3>checkout &amp; cart experience</h3>
+          <!-- Static hero images (1.webp .. 7.webp) -->
+          <div style="display: flex !important; flex-direction: column !important; gap: 2rem; margin: 2rem 0;">
+            <img src="../assets/Bestbuy/1.webp" alt="BestBuy screenshot 1" style="width: 100%; height: auto; border-radius: 8px;" />
+            <img src="../assets/Bestbuy/2.webp" alt="BestBuy screenshot 2" style="width: 100%; height: auto; border-radius: 8px;" />
+            <img src="../assets/Bestbuy/3.webp" alt="BestBuy screenshot 3" style="width: 100%; height: auto; border-radius: 8px;" />
+            <img src="../assets/Bestbuy/4.webp" alt="BestBuy screenshot 4" style="width: 100%; height: auto; border-radius: 8px;" />
+            <img src="../assets/Bestbuy/5.webp" alt="BestBuy screenshot 5" style="width: 100%; height: auto; border-radius: 8px;" />
+            <img src="../assets/Bestbuy/6.webp" alt="BestBuy screenshot 6" style="width: 100%; height: auto; border-radius: 8px;" />
+            <img src="../assets/Bestbuy/7.webp" alt="BestBuy screenshot 7" style="width: 100%; height: auto; border-radius: 8px;" />
+          </div>
+        </section>
+        <section class="project-section">
+          <h3>Context &amp; Problem</h3>
+          <p>Lenovo needed to let customers buy online at Lenovo.com but pick up in-store at a Best Buy location — a Buy Online, Pick Up In Store (BOPIS) partnership that required new cart and checkout logic layered onto the existing shopping flow.</p>
+        </section>
+
+        <section class="project-section">
+          <h3>Role &amp; Scope</h3>
+          <p>Senior Product Owner on a large, cross-functional initiative spanning product, UX, IT, and Best Buy's own technical team. I owned all requirements for the cart and checkout journey — the segment of the project covering delivery-method selection, mixed-cart logic, tax calculation, and order submission.</p>
+        </section>
+
+        <section class="project-section">
+          <h3>Requirements Ownership</h3>
+          <p>Rather than user research, this project's requirements were driven by a business partnership agreement with Best Buy.</p>
+        </section>
+
+        <section class="project-section">
+          <h3>Strategy &amp; Prioritization</h3>
+          <p>For my scope, I balanced two fulfillment paths (ship vs. pickup) at the line-item level against an MVP payment constraint (credit card only at launch) and a phased rollout — sequencing which cart/checkout scenarios (all-pickup, all-shipping, mixed) shipped in MVP versus later gap stories, rather than blocking launch on every edge case.</p>
+        </section>
+
+        <section class="project-section">
+          <h3>Execution</h3>
+          <p>Delivered the cart and checkout requirements, covering: real-time BBY inventory checks carried from product page into cart; line-item-level delivery-method switching; stock reservation at checkout with configurable release timing; location-based tax calculation split across pickup and shipping addresses; and the order-submission payload sent to Best Buy's API (SKU, quantity, fulfillment mode, pickup-person details, promise date).</p>
+
+          <!-- Execution images -->
+          <div style="display: flex; flex-direction: column; gap: 2rem; margin: 2rem 0;">
+            <img src="../assets/Bestbuy/roadmap.png" alt="Project roadmap" style="width: 100%; height: auto; border-radius: 8px;" />
+            <img src="../assets/Bestbuy/capacity.png" alt="Capacity planning" style="width: 100%; height: auto; border-radius: 8px;" />
+            <img src="../assets/Bestbuy/userstory.png" alt="User story" style="width: 100%; height: auto; border-radius: 8px;" />
+          </div>
+          <p class="discovery-caption">Execution Planning</p>
+        </section>
+
+        <section class="project-section">
+          <h3>Outcomes</h3>
+          <p>The initiative was projected at <strong>$20M in annual business value</strong> per the project's business case. The cart and checkout scope shipped to production for U.S. customers, with remaining gap stories tracked separately post-launch.</p>
+        </section>
+    </div>
+    
+  </main>
+  <script src="../script.js?v=10"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Data-Driven Decisions — Project</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    main.container { padding-left: 1rem !important; padding-right: 1rem !important; }
+    .project-page { padding-left: 0 !important; padding-right: 0 !important; }
+    .project-page > h2 { margin-bottom: 4rem; }
+    .project-page > .project-rotator { position: relative; width: 100%; margin-bottom: 3rem; }
+    .project-page > .project-rotator img { width: 90%; height: auto; display: block; margin: 0 auto; }
+    .project-section { margin-bottom: 3rem; }
+    .project-section h3 { margin-bottom: 1.5rem; }
+    .project-section p { margin-bottom: 1.5rem; }
+    .project-section img { opacity: 1 !important; display: block !important; animation: none !important; transform: none !important; }
+    .project-section img.active { opacity: 1 !important; }
+    .project-section img:not(.active) { opacity: 1 !important; }
+    .rotator-dots { display: none !important; }
+    .project-section div[style*="flex-direction: column"] img { animation: none !important; }
+    .project-section div[style*="flex-direction: column"] img:nth-child(n) { opacity: 1 !important; }
+    .project-section div[style*="flex-direction: column"] { animation: none !important; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container project-page">
+    <h2>Data-Driven Decisions to Improve Debt Program Success</h2>
+
+    <div class="project-main">
+        <section class="project-section">
+          <h3>Context &amp; Problem</h3>
+          <p>Credit Canada's Debt Consolidation Program (DCP) helps clients repay debt at low or no interest, but only about 50% of the ~2,200 clients who enroll each year complete it. Credit Canada had rich client data but no model connecting it to outcomes — leaving them unable to identify who was likely to succeed or design interventions for who wasn't.</p>
+        </section>
+
+        <section class="project-section">
+          <h3>My Role</h3>
+          <p>Co-lead on a six-person graduate Marketing Analytics team, contributing across data analysis, business strategy, and presentation.</p>
+        </section>
+
+        <section class="project-section">
+          <h3>Analysis &amp; Model Selection</h3>
+          <p>I cleaned and engineered a dataset of ~3,500 historical DCP records, tested four modeling approaches, and selected XGBoost as the production model (F1 0.80/0.85, ROC-AUC 0.89).</p>
+          <p>SHAP analysis ranked the top 10 drivers of success: debt balance, program duration, income/expenses, payment consistency, age, and employment status.</p>
+
+          <!-- Analysis gallery -->
+          <div style="display: flex !important; flex-direction: column !important; gap: 2rem; margin: 2rem 0;">
+            <img src="../assets/Credit/1.png" alt="Analysis 1" style="width: 100%; height: auto; border-radius: 8px;" />
+            <img src="../assets/Credit/2.png" alt="Analysis 2" style="width: 100%; height: auto; border-radius: 8px;" />
+          </div>
+          <p class="discovery-caption">Identifying Drivers</p>
+        </section>
+
+        <section class="project-section">
+          <h3>From Insight to Decision</h3>
+          <p>Rather than one blanket fix, we segmented clients into three response tiers: rewards for clients on track, proactive intervention (consultations, flexible payment plans) triggered by early warning signs like rising missed payments, and targeted support for structurally vulnerable segments like the unemployed.</p>
+          <p>We proposed four KPIs — satisfaction, engagement, retention, behavioral change — so success could be measured, not assumed.</p>
+
+          <!-- Strategy gallery -->
+          <div style="display: flex !important; flex-direction: column !important; gap: 2rem; margin: 2rem 0;">
+            <img src="../assets/Credit/3.png" alt="Strategy 3" style="width: 100%; height: auto; border-radius: 8px;" />
+          </div>
+          <p class="discovery-caption">Segmentation Strategy</p>
+        </section>
+
+        <section class="project-section">
+          <h3>Outcomes</h3>
+          <p>A validated predictive model (ROC-AUC 0.89) and a segmented intervention strategy with proposed KPIs and a revenue-impact case, presented at the course's applied analytics capstone:</p>
+          <ul>
+            <li>XGBoost model with F1 score 0.80/0.85 and ROC-AUC 0.89</li>
+            <li>Identified top 10 success drivers through SHAP analysis</li>
+            <li>Three-tier client segmentation strategy with targeted interventions</li>
+            <li>Four measurable KPIs for program success tracking</li>
+            <li>Revenue-impact business case tied to funding model</li>
+          </ul>
+
+          <!-- Outcomes gallery -->
+          <div style="display: flex !important; flex-direction: column !important; gap: 2rem; margin: 2rem 0;">
+            <img src="../assets/Credit/4.png" alt="Outcomes 4" style="width: 100%; height: auto; border-radius: 8px;" />
+            <img src="../assets/Credit/5.png" alt="Outcomes 5" style="width: 100%; height: auto; border-radius: 8px;" />
+          </div>
+          <p class="discovery-caption">Measurable Metrics</p>
+        </section>
+      </div>
+  </main>
+  <script src="../script.js?v=5"></script>
+</body>
+</html>

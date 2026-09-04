@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Yumei Liu — Product Builder</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .project-bubble { color: #ffffff !important; }
+    .hero { text-align: center; border: 1px solid #c9b584; border-radius: 20px; padding: 3rem 0.5rem; background: transparent; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-top: 3rem; }
+    .hero-title { border-radius: 8px; color: #ffffff; }
+    .hero-tagline { font-size: 1.15rem; margin: 2rem auto 0; border-radius: 8px; color: #ffffff; line-height: 1.65; }
+    .projects, .values, .process, .contact { margin-bottom: 3rem; }
+    .projects h3, .values h3, .process h3, .contact h3 { margin-bottom: 1.5rem; color: #ffffff; }
+    .projects p, .values li, .process li { margin-bottom: 1rem; color: #ffffff; }
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
+    .value-card { border: 2px solid #c9b584; border-radius: 16px; padding: 2rem; }
+    .value-card h4 { margin-top: 0; margin-bottom: 1rem; color: #ffffff; font-size: 1.05rem; font-weight: 600; }
+    .value-card p { margin: 0; font-size: 0.95rem; line-height: 1.6; color: #ffffff; }
+    .process-flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .process-step { background: transparent; border: 1px solid #c9b584; border-radius: 12px; padding: 2rem; position: relative; }
+    .step-number { position: absolute; top: 1rem; right: 1.5rem; min-width: 40px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: #c9b584; border: 1px solid #c9b584; border-radius: 50%; flex-shrink: 0; font-weight: bold; color: #ffffff; font-size: 0.9rem; }
+    .process-step h4 { margin: 0 0 1rem 0; color: #ffffff; font-size: 1.05rem; font-weight: 600; }
+    .process-step p { margin: 0; line-height: 1.7; color: #ffffff; font-size: 0.95rem; }
+    .floating-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: none; background: #000000; backdrop-filter: blur(10px); padding: 1.5rem 3rem; border-bottom: 1px solid #c9b584; }
+    .floating-nav.visible { display: flex; gap: 4.5rem; align-items: center; justify-content: center; }
+    .floating-nav a { text-decoration: none; color: #ffffff; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s ease; position: relative; }
+    .floating-nav a.active { color: #ffffff; }
+    .floating-nav a.active::after { content: ''; position: absolute; bottom: -8px; left: 0; right: 0; height: 3px; background: #c9b584; border-radius: 2px; }
+    .section-nav { display: flex; gap: 4.5rem; align-items: center; justify-content: center; background: #000000; padding: 1.5rem 3rem; border-bottom: 1px solid #c9b584; margin-top: 4rem; margin-bottom: 4rem; }
+    .section-nav a { text-decoration: none; color: #ffffff; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s ease; position: relative; }
+    .section-nav a.active { color: #ffffff; }
+    .section-nav a.active::after { content: ''; position: absolute; bottom: -16px; left: 0; right: 0; height: 3px; background: #c9b584; border-radius: 2px; }
+  </style>
+</head>
+<body>
+  <nav class="floating-nav" id="floatingNav">
+    <a href="#projects" data-section="projects">Projects</a>
+    <a href="#values" data-section="values">Values</a>
+    <a href="#process" data-section="process">Process</a>
+    <a href="#contact" data-section="contact">Contact</a>
+  </nav>
+  <header class="site-header">
+  </header>
+
+  <main>
+    <section class="hero container">
+      <h2 class="hero-title">👋 Hi, I’m Yumei, Product Builder</h2>
+
+      <div class="hero-portrait">
+        <img src="assets/photo.jpg" alt="Yumei Liu — portrait" loading="lazy" />
+      </div>
+
+      <p class="hero-tagline">I'm a product-minded professional transitioning from engineering into product management,<br>backed by hands-on Senior Product Owner experience at Lenovo and a Master's in Management Analytics grounding my decisions in data.</p>
+    </section>
+
+    <nav class="section-nav" id="sectionNav">
+      <a href="#projects" data-section="projects">Projects</a>
+      <a href="#values" data-section="values">Values</a>
+      <a href="#process" data-section="process">Process</a>
+      <a href="#contact" data-section="contact">Contact</a>
+    </nav>
+
+    <section id="projects" class="container projects">
+      <h3 class="section-title"><span class="gold-dot" aria-hidden="true"></span>Projects</h3>
+      <div class="grid">
+        <article class="card">
+          <a class="card-cover" href="projects/adhd.html" aria-label="Open ADHD project"></a>
+          <div class="card-media">
+            <div class="media-inner">
+              <img src="assets/Anchor/1.png" alt="AI-powered ADHD app preview" />
+            </div>
+          </div>
+          <div class="card-info">
+            <h4><a class="project-link" href="projects/adhd.html">AI-POWERED ADHD APP FOR PARENTS</a></h4>
+            <p>Capstone Project @BrainStation , 2026</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <a class="card-cover" href="projects/creditdebt.html" aria-label="Open Credit Debt project"></a>
+          <div class="card-media">
+            <div class="media-inner">
+              <img src="assets/Credit/C1.jpg" alt="Credit Debt preview" />
+            </div>
+          </div>
+          <div class="card-info">
+            <h4><a class="project-link" href="projects/creditdebt.html">Data-Driven Decisions to Improve Debt Program Success</a></h4>
+            <p>Marketing Analytics Project @Smith School of Business , 2025</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <a class="card-cover" href="projects/pricelock.html" aria-label="Open Price Lock project"></a>
+          <div class="card-media">
+            <div class="media-inner">
+              <img src="assets/pricelock/p1.png" alt="Price Lock preview" />
+            </div>
+          </div>
+          <div class="card-info">
+            <h4><a class="project-link" href="projects/pricelock.html">LENOVO PRO PRICE LOCK — SMB CONTRACT PRICING</a></h4>
+            <p>@Lenovo as a Senior Product Owner, 2023</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <a class="card-cover" href="projects/minicart.html" aria-label="Open Mini Cart project"></a>
+          <div class="card-media">
+            <div class="media-inner">
+              <img src="assets/minicart/mc1.png" alt="Mini Cart preview" />
+            </div>
+          </div>
+          <div class="card-info">
+            <h4><a class="project-link" href="projects/minicart.html">MINI CART — LENOVO.COM CHECKOUT EXPERIENCE</a></h4>
+            <p>@Lenovo as a Senior Product Owner, 2023</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <a class="card-cover" href="projects/bestbuy.html" aria-label="Open BestBuy project"></a>
+          <div class="card-media">
+            <div class="media-inner">
+              <img src="assets/Bestbuy/2.webp" alt="BestBuy preview" />
+            </div>
+          </div>
+          <div class="card-info">
+            <h4><a class="project-link" href="projects/bestbuy.html">B2C BESTBUY INSTORE PICKUP INTEGRATION</a></h4>
+            <p>@Lenovo as a Senior Product Owner , 2023</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="values" class="container values">
+      <h3>My Values</h3>
+      <div class="values-grid">
+        <div class="value-card">
+          <h4>Outcomes over output</h4>
+          <p>Shipping a feature isn't the goal; solving the problem is. I measure success by the impact a decision creates, not just the work completed.</p>
+        </div>
+        <div class="value-card">
+          <h4>Decisions backed by data</h4>
+          <p>I ground product decisions in evidence — user research, metrics, market signals — rather than opinion, and I'm honest about what the data can't yet tell me.</p>
+        </div>
+        <div class="value-card">
+          <h4>Clarity over comfort</h4>
+          <p>I'd rather surface a gap or ask an uncomfortable question early than let ambiguity ship downstream. Precision in requirements saves rework later.</p>
+        </div>
+        <div class="value-card">
+          <h4>User empathy as a discipline</h4>
+          <p>Every roadmap decision traces back to a real person's problem. I keep the user in view through prioritization, not just at the discovery stage.</p>
+        </div>
+        <div class="value-card">
+          <h4>Alignment across functions</h4>
+          <p>Good products get built at the intersection of engineering, design, and business. I see stakeholder alignment as part of the job, not a distraction from it.</p>
+        </div>
+        <div class="value-card">
+          <h4>Growth as a practice</h4>
+          <p>I treat ambiguity and new domains as things to learn from, not obstacles — the same instinct that took me from engineering to product ownership.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="container process">
+      <h3>My Process</h3>
+      <div class="process-flow">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h4>Discover the problem</h4>
+          <p>Start from the problem, not the solution — talk to users, study data and market signals before jumping to features.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h4>Define the opportunity</h4>
+          <p>Turn discovery into a clear point of view: who the user is, what they need, and what success looks like.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h4>Prioritize with a framework</h4>
+          <p>Use structured frameworks (MoSCoW, RICE, Kano) to separate essential from nice-to-have, and be explicit about trade-offs.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <h4>Write requirements that remove ambiguity</h4>
+          <p>Translate strategy into PRDs, user stories, and acceptance criteria detailed enough to cover edge cases.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">5</div>
+          <h4>Build in partnership, not in a silo</h4>
+          <p>Stay closely partnered with engineering, design, and QA — answering questions fast and validating early.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">6</div>
+          <h4>Launch with metrics defined upfront</h4>
+          <p>Define how success will be measured — OKRs, KPIs, or output metrics — before launch, not after.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">7</div>
+          <h4>Measure, learn, and iterate</h4>
+          <p>Shipping isn't the finish line. Feed post-launch data back into the next round of discovery.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="container contact">
+      <h3>Let’s Talk</h3>
+      <p>📧 Email: <a href="mailto:yumeiliu2017@outlook.com">yumeiliu2017@outlook.com</a></p>
+      <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/yumei-liu-51323b9a">www.linkedin.com/in/yumei-liu-51323b9a</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small></small>
+    </div>
+  </footer>
+
+  <script>
+    // Force-reload CSS and all images by appending a cache-busting query string
+    (function(){
+      try{
+        var t = Date.now();
+        var link = document.querySelector('link[rel="stylesheet"]');
+        if(link) link.href = link.href.split('?')[0] + '?v=' + t;
+        document.querySelectorAll('img').forEach(function(img){
+          var src = img.getAttribute('src') || '';
+          img.src = src.split('?')[0] + '?v=' + t;
+        });
+      }catch(e){console.error(e)}
+    })();
+  </script>
+  <script src="script.js?v=3"></script>
+</body>
+</html>

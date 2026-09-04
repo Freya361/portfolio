@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LenovoPRO Price Lock — Project</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    main.container { padding-left: 1rem !important; padding-right: 1rem !important; }
+    .project-page { padding-left: 0 !important; padding-right: 0 !important; }
+    .project-page > h2 { margin-bottom: 4rem; }
+    .project-page > .project-rotator { position: relative; width: 100%; margin-bottom: 3rem; }
+    .project-page > .project-rotator img { width: 90%; height: auto; display: block; margin: 0 auto; }
+    .project-section { margin-bottom: 3rem; }
+    .project-section h3 { margin-bottom: 1.5rem; }
+    .project-section p { margin-bottom: 1.5rem; }
+    .project-section img { opacity: 1 !important; display: block !important; animation: none !important; transform: none !important; }
+    .project-section img.active { opacity: 1 !important; }
+    .project-section img:not(.active) { opacity: 1 !important; }
+    .rotator-dots { display: none !important; }
+    .project-section div[style*="flex-direction: column"] img { animation: none !important; }
+    .project-section div[style*="flex-direction: column"] img:nth-child(n) { opacity: 1 !important; }
+    .project-section div[style*="flex-direction: column"] { animation: none !important; }
+    main img { opacity: 1 !important; display: block !important; animation: none !important; transform: none !important; }
+    main img.active { opacity: 1 !important; }
+    main img:not(.active) { opacity: 1 !important; }
+    div[style*="flex-direction: column"] img { opacity: 1 !important; animation: none !important; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container project-page">
+    <h2>LenovoPRO Price Lock — SMB Contract Pricing</h2>
+
+    <div class="project-main">
+        <section class="project-section">
+          <h3>Price lock agreement interface</h3>
+          <!-- Static hero images -->
+          <div style="display: flex !important; flex-direction: column !important; gap: 2rem; margin: 2rem 0;">
+            <img src="../assets/pricelock/p1.png" alt="Price Lock screenshot 1" style="width: 100%; height: auto; border-radius: 8px;" />
+            <img src="../assets/pricelock/p2.png" alt="Price Lock screenshot 2" style="width: 100%; height: auto; border-radius: 8px;" />
+            <img src="../assets/pricelock/p3.png" alt="Price Lock screenshot 3" style="width: 100%; height: auto; border-radius: 8px;" />
+            <img src="../assets/pricelock/p4.png" alt="Price Lock screenshot 4" style="width: 100%; height: auto; border-radius: 8px;" />
+          </div>
+        </section>
+        <section class="project-section">
+          <h3>Context &amp; Problem</h3>
+          <p>SMB sales reps needed a way to offer negotiated, time-limited pricing on specific parts and configurations to business customers — locking in a price and quantity for a set period, similar to a contract. LenovoPRO (Lenovo's SMB storefront) had no mechanism for this; every customer saw the same tiered pricing.</p>
+        </section>
+
+        <section class="project-section">
+          <h3>Role &amp; Scope</h3>
+          <p>As Senior Product Owner, I drove requirements for the tele-side agreement creation flow, the pricing display logic, and the approval workflow within this cart and checkout initiative.</p>
+        </section>
+
+        <section class="project-section">
+          <h3>Requirements Ownership</h3>
+          <p>I owned agreement creation at cart page, covering how a rep flags line items in a cart, sets a price and quantity limit per part, and submits for approval — with agreements expiring after a configurable period (default 60 days, capped at 365). For pricing display, an approved agreement's price surfaces wherever the SKU appears (search, product listing, PDP, cart) under a "My Price" label, alongside remaining quantity and expiration date, correctly reverting to standard pricing once quantity is exhausted or the agreement expires. For the approval workflow, an approver role reviews and approves or rejects an entire agreement (not line-by-line), with a full audit history of who requested and approved what.</p>
+        </section>
+
+        <section class="project-section">
+          <h3>Strategy &amp; Prioritization</h3>
+          <p>The lifecycle mapped to a state machine — Pending, Approved, Rejected, Expired, Cancelled — with the ability to copy an existing agreement to speed up repeat deals. Approved agreements are locked from further edits; any change requires a brand-new submission, keeping the pricing audit trail clean rather than allowing silent edits to live customer pricing.</p>
+
+          <!-- Strategy gallery -->
+          <div style="display: flex; flex-direction: column; gap: 2rem; margin: 2rem 0;">
+            <img src="../assets/pricelock/PriceLock Agreement.jpg" alt="Price Lock Agreement" style="width: 100%; height: auto; border-radius: 8px; max-width: 100%;" />
+          </div>
+          <p class="discovery-caption">Agreement State Machine &amp; Lifecycle</p>
+        </section>
+
+        <section class="project-section">
+          <h3>Execution</h3>
+          <p>Delivered requirements feeding a full-stack build: backend toggles at the customer-group level, tele-facing cart and approval UI, and customer-facing display logic at cart and checkout, including edge cases like out-of-stock SKUs and zero-remaining-quantity agreements.</p>
+
+          <!-- Execution images -->
+          <div style="display: flex; flex-direction: column; gap: 2rem; margin: 2rem 0;">
+            <img src="../assets/pricelock/roadmap.png" alt="Project roadmap" style="width: 100%; height: auto; border-radius: 8px;" />
+            <img src="../assets/pricelock/userstory.png" alt="User story" style="width: 100%; height: auto; border-radius: 8px;" />
+          </div>
+          <p class="discovery-caption">Execution Planning</p>
+        </section>
+
+        <section class="project-section">
+          <h3>Outcomes</h3>
+          <p>Projected business value and impact:</p>
+          <ul>
+            <li>$9M in business value for 6 months of use</li>
+            <li>Scaling to $13M at 9 months of use</li>
+            <li>Full state-machine lifecycle management for agreements (Pending, Approved, Rejected, Expired, Cancelled)</li>
+            <li>Real-time pricing display across all customer touchpoints (search, PDP, cart, checkout)</li>
+            <li>Complete audit trail for compliance and agreement tracking</li>
+            <li>Agreement replication for streamlined repeat deals</li>
+          </ul>
+        </section>
+      </div>
+  </main>
+  <script src="../script.js?v=10"></script>
+</body>
+</html>
