@@ -1,5 +1,16 @@
 {
-  "buildCommand": "echo 'Static site, no build needed'",
-  "outputDirectory": "website-draft",
-  "framework": "static"
+  "builds": [
+    {
+      "src": "website-draft/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "website-draft/$1"
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
 }
