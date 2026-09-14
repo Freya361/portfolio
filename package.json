@@ -1,0 +1,20 @@
+{
+  "name": "yumei-portfolio",
+  "version": "1.0.0",
+  "description": "Yumei Liu's product portfolio",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "npm install"
+  },
+  "keywords": [
+    "portfolio",
+    "product",
+    "ai"
+  ],
+  "author": "Yumei Liu",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.27.3"
+  }
+}
