@@ -136,8 +136,10 @@ class PortfolioAssistant {
       }
 
       const data = await response.json();
-      const assistantMessage = { role: "assistant", content: data.content };
-      this.messages.push(assistantMessage);
+      if (!data.content) {
+        throw new Error("Empty response from assistant");
+      }
+      this.messages.push({ role: "assistant", content: data.content });
       this.displayMessage("assistant", data.content);
     } catch (error) {
       console.error("Chat error:", error);

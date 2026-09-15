@@ -77,8 +77,10 @@ export default async function handler(req, res) {
       })),
     });
 
-    const assistantMessage =
-      response.content[0].type === "text" ? response.content[0].text : "";
+    const assistantMessage = response.content
+      .filter((block) => block.type === "text")
+      .map((block) => block.text)
+      .join("");
 
     return res.status(200).json({
       role: "assistant",
