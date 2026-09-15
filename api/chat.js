@@ -26,6 +26,8 @@ Key Projects:
 
 Keep responses concise, friendly, and reference specific details from her experience when relevant. If someone asks about something not related to Yumei's work or portfolio, politely redirect them back to her professional work.`;
 
+export const maxDuration = 60;
+
 export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -65,8 +67,9 @@ export default async function handler(req, res) {
     });
 
     const response = await client.messages.create({
-      model: "claude-3-5-sonnet-20241022",
-      max_tokens: 1024,
+      model: "claude-opus-5",
+      max_tokens: 16000,
+      output_config: { effort: "low" },
       system: systemPrompt,
       messages: messages.map((msg) => ({
         role: msg.role,
