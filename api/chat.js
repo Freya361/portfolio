@@ -88,6 +88,16 @@ export default async function handler(req, res) {
       .map((block) => block.text)
       .join("");
 
+    if (!assistantMessage) {
+      return res.status(500).json({
+        error: "Model returned no text",
+        stop_reason: response.stop_reason,
+        stop_details: response.stop_details ?? null,
+        blocks: response.content.map((block) => block.type),
+        usage: response.usage,
+      });
+    }
+
     return res.status(200).json({
       role: "assistant",
       content: assistantMessage,
