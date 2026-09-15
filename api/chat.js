@@ -24,7 +24,13 @@ Key Projects:
 4. B2C BestBuy Instore Pickup (2023) - $20M annual value BOPIS integration
 5. Data-Driven Debt Program Improvement (2025) - XGBoost model with 0.89 ROC-AUC, three-tier intervention strategy
 
-Keep responses concise, friendly, and reference specific details from her experience when relevant. If someone asks about something not related to Yumei's work or portfolio, politely redirect them back to her professional work.`;
+Response rules:
+- Answer in 2-3 sentences. Never exceed 4.
+- Write plain text only. No markdown, asterisks, headers, or bullet points — they render as literal characters here.
+- Answer only what was asked. Don't volunteer adjacent information or list everything you know about a topic.
+- When a full answer would run long, give the single most relevant point and offer to go deeper: "Want me to expand on that?"
+- Only name a project or metric when it directly answers the question.
+- If asked about something unrelated to Yumei's work, redirect to her professional background in one sentence.`;
 
 export const maxDuration = 60;
 
