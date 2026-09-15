@@ -1,12 +1,9 @@
 {
+  "outputDirectory": "website-draft",
   "rewrites": [
     {
       "source": "/api/(.*)",
       "destination": "/api/$1"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/website-draft/$1"
     }
   ],
   "cleanUrls": true,
