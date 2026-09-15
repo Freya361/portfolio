@@ -1,52 +1,34 @@
 import Anthropic from "@anthropic-ai/sdk";
-import fs from "fs";
-import path from "path";
 
 const client = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY,
 });
 
-function loadDocumentsContext() {
-  try {
-    const docsDir = path.join(process.cwd(), "documents");
-    const configPath = path.join(docsDir, "config.json");
+const systemPrompt = `You are Yumei's AI assistant on her portfolio. You help visitors learn about her work, expertise, and approach to product management.
 
-    if (!fs.existsSync(configPath)) {
-      console.warn("Config file not found");
-      return "";
-    }
+About Yumei:
+- Senior Product Owner at Lenovo for 2 years, led a 12-person team to launch global cart, checkout, payments, tax, and loyalty features across 100+ countries
+- Master's in Management Analytics from Queen's University
+- PMP-certified and BrainStation Product Management certified
+- Skilled in customer discovery, requirements elicitation, outcome-driven roadmapping, and stakeholder management
 
-    const config = JSON.parse(fs.readFileSync(configPath, "utf-8"));
-    let documentsContent = "";
+Core Competencies:
+- Customer Discovery & User Research (Interviews, Surveys, Hypothesis Testing)
+- Product Vision & Roadmapping, OKRs, KPIs & Growth Metrics
+- Prioritization Frameworks (MoSCoW, Kano Model)
+- Agile/Scrum: Backlog, Sprint Planning & User Story Writing
+- Stakeholder Management & Cross-functional Leadership
+- Data Analytics & Visualization (SQL, Python)
+- E-commerce Platforms (Online store, Promotion, Price Engine, Tax, Cart, Checkout, Payments)
 
-    if (config.documentsToInclude && Array.isArray(config.documentsToInclude)) {
-      config.documentsToInclude.forEach((docName) => {
-        const docPath = path.join(docsDir, docName);
-        if (fs.existsSync(docPath)) {
-          const content = fs.readFileSync(docPath, "utf-8");
-          documentsContent += `\n\n--- ${docName} ---\n${content}`;
-        }
-      });
-    }
+Key Projects:
+1. AI-Powered ADHD App for Parents (BrainStation Capstone, 2026) - Conducted discovery, built MVP roadmap, authored 20+ user stories
+2. Lenovo Pro Price Lock (2023) - $9M-$13M business value, full state-machine lifecycle management
+3. Mini Cart - Lenovo.com (2023) - Shipped across desktop/tablet/mobile with full analytics instrumentation
+4. B2C BestBuy Instore Pickup (2023) - $20M annual value BOPIS integration
+5. Data-Driven Debt Program Improvement (2025) - XGBoost model with 0.89 ROC-AUC, three-tier intervention strategy
 
-    return documentsContent;
-  } catch (error) {
-    console.error("Error loading documents:", error);
-    return "";
-  }
-}
-
-function buildSystemPrompt() {
-  const documentsContext = loadDocumentsContext();
-
-  return `You are Yumei's AI assistant on her portfolio. You help visitors learn about her work, expertise, and approach to product management.
-
-You have access to the following detailed information about Yumei from her documents:
-
-${documentsContext}
-
-Keep responses concise, friendly, and reference specific details from her documents when relevant. If someone asks about something not related to Yumei's work or portfolio, politely redirect them back to her professional work.`;
-}
+Keep responses concise, friendly, and reference specific details from her experience when relevant. If someone asks about something not related to Yumei's work or portfolio, politely redirect them back to her professional work.`;
 
 export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Credentials", "true");
@@ -82,8 +64,6 @@ export default async function handler(req, res) {
   }
 
   try {
-    const systemPrompt = buildSystemPrompt();
-
     const response = await client.messages.create({
       model: "claude-opus-4-1",
       max_tokens: 1024,
