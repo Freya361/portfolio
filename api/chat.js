@@ -1,9 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
 
-const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-});
-
 const systemPrompt = `You are Yumei's AI assistant on her portfolio. You help visitors learn about her work, expertise, and approach to product management.
 
 About Yumei:
@@ -64,6 +60,10 @@ export default async function handler(req, res) {
   }
 
   try {
+    const client = new Anthropic({
+      apiKey: process.env.ANTHROPIC_API_KEY,
+    });
+
     const response = await client.messages.create({
       model: "claude-opus-4-1",
       max_tokens: 1024,
