@@ -1,5 +1,10 @@
 {
   "outputDirectory": "website-draft",
+  "functions": {
+    "api/chat.js": {
+      "includeFiles": "documents/**"
+    }
+  },
   "rewrites": [
     {
       "source": "/api/(.*)",

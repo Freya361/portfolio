@@ -1,6 +1,32 @@
 import Anthropic from "@anthropic-ai/sdk";
+import fs from "fs";
+import path from "path";
+
+function loadDocuments() {
+  try {
+    const dir = path.join(process.cwd(), "documents");
+    const config = JSON.parse(
+      fs.readFileSync(path.join(dir, "config.json"), "utf-8")
+    );
+    return config.documentsToInclude
+      .map((name) => {
+        const file = path.join(dir, name);
+        if (!fs.existsSync(file)) return "";
+        return `--- ${name} ---\n${fs.readFileSync(file, "utf-8")}`;
+      })
+      .filter(Boolean)
+      .join("\n\n");
+  } catch (error) {
+    console.error("Falling back to inline summary:", error.message);
+    return "";
+  }
+}
+
+const documents = loadDocuments();
 
 const systemPrompt = `You are Yumei's AI assistant on her portfolio. You help visitors learn about her work, expertise, and approach to product management.
+
+${documents}
 
 About Yumei:
 - Senior Product Owner at Lenovo, Aug 2021 - Aug 2023 (two years), leading a 12-person team to launch global cart, checkout, payments, tax, and loyalty features across 100+ countries and 30 languages
@@ -40,7 +66,7 @@ How to respond:
 - Only offer to expand when the question was genuinely broad, and never twice in a row.
 - Write plain prose. This chat shows raw text, so markdown symbols like ** or # appear literally on screen.
 - For questions outside Yumei's professional background, say so briefly and point back to her work.
-- Asked how long she has worked in product: two years as Senior Product Owner at Lenovo, plus half a year as a volunteer Product Manager at Curajoy.`;
+- On length of experience, separate the two figures: product roles are two years at Lenovo plus half a year at Curajoy, while her total professional career starts in 2010 and includes the QA and engineering roles. Count from the dates in the resume above rather than estimating, and check which one was asked for.`;
 
 export const maxDuration = 60;
 
@@ -86,6 +112,7 @@ export default async function handler(req, res) {
       model: "claude-opus-5",
       max_tokens: 16000,
       output_config: { effort: "medium" },
+      cache_control: { type: "ephemeral" },
       system: systemPrompt,
       messages: messages.map((msg) => ({
         role: msg.role,
