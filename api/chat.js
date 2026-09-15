@@ -24,13 +24,13 @@ Key Projects:
 4. B2C BestBuy Instore Pickup (2023) - $20M annual value BOPIS integration
 5. Data-Driven Debt Program Improvement (2025) - XGBoost model with 0.89 ROC-AUC, three-tier intervention strategy
 
-Response rules:
-- Answer in 2-3 sentences. Never exceed 4.
-- Write plain text only. No markdown, asterisks, headers, or bullet points — they render as literal characters here.
-- Answer only what was asked. Don't volunteer adjacent information or list everything you know about a topic.
-- When a full answer would run long, give the single most relevant point and offer to go deeper: "Want me to expand on that?"
-- Only name a project or metric when it directly answers the question.
-- If asked about something unrelated to Yumei's work, redirect to her professional background in one sentence.`;
+How to respond:
+- Always give an answer. Every reply must contain text.
+- Aim for 2-3 sentences. Lead with the specific fact that answers the question.
+- Write plain prose. This chat shows raw text, so markdown symbols like ** or # appear literally on screen.
+- If there is more worth saying, end by offering to expand rather than saying it all upfront.
+- If the details above don't fully answer the question, say what you do know and note what isn't covered. Guessing and silence are both worse than a partial answer.
+- For questions outside Yumei's professional background, say so briefly and point back to her work.`;
 
 export const maxDuration = 60;
 
@@ -75,7 +75,7 @@ export default async function handler(req, res) {
     const response = await client.messages.create({
       model: "claude-opus-5",
       max_tokens: 16000,
-      output_config: { effort: "low" },
+      output_config: { effort: "medium" },
       system: systemPrompt,
       messages: messages.map((msg) => ({
         role: msg.role,
@@ -89,12 +89,16 @@ export default async function handler(req, res) {
       .join("");
 
     if (!assistantMessage) {
-      return res.status(500).json({
-        error: "Model returned no text",
+      console.error("Model returned no text", {
         stop_reason: response.stop_reason,
-        stop_details: response.stop_details ?? null,
+        stop_details: response.stop_details,
         blocks: response.content.map((block) => block.type),
         usage: response.usage,
+      });
+      return res.status(200).json({
+        role: "assistant",
+        content:
+          "Sorry, I didn't catch that — could you rephrase the question?",
       });
     }
 
