@@ -83,6 +83,10 @@ export default async function handler(req, res) {
     });
   } catch (error) {
     console.error("Claude API error:", error);
-    return res.status(500).json({ error: "Failed to generate response" });
+    return res.status(500).json({
+      error: "Failed to generate response",
+      details: error.message || String(error),
+      status: error.status || null,
+    });
   }
 }

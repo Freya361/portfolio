@@ -130,6 +130,8 @@ class PortfolioAssistant {
       });
 
       if (!response.ok) {
+        const errorBody = await response.text();
+        console.error("Server responded with:", errorBody);
         throw new Error(`API error: ${response.status}`);
       }
 
